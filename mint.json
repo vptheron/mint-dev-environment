@@ -1,0 +1,13 @@
+{
+  "run_list": [
+    "mint-dev-environment"
+  ],
+  
+  "mint-dev-environment": {
+    "username": "vincent",
+    "full_name": "Vincent Theron",
+    "email_address": "vptheron@gmail.com",
+    "desktop": "cinnamon"
+  }
+
+}

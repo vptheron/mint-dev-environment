@@ -1,0 +1,12 @@
+[user]
+	name = <%= @full_name %>
+	email = <%= @email_address %>
+
+[credential]
+	helper = cache --timeout=3600
+
+[diff]
+    tool = meld
+
+[difftool]
+    prompt = false
