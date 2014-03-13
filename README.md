@@ -10,8 +10,8 @@ It is assumed that you have `git-core` installed and you have cloned this reposi
 
 ```
 sudo apt-get install -y git-core
-git clone https://github.com/vptheron/mate-dev-environment ~/mate-dev-environment
-cd ~/mate-dev-environment
+git clone https://github.com/vptheron/mint-dev-environment ~/mint-dev-environment
+cd ~/mint-dev-environment
 ```
 
 ## Configuring the environment
