@@ -41,7 +41,7 @@ sudo  ./install.sh
 * **Chromium** replaces **Firefox**
 * **Adobe Flash Plugin** replaces **Mint Flash Plugin**
 * Installed languages/build tools/etc: **OpenJDK 7**, **sbt-extras**, **Leiningen**, **Haskell Platform**
-* Other applications/packages installed: **vim**, **Skype**, **Calibre**, **Clementine**, **Brasero**, **meld**
+* Other applications/packages installed: **vim**, **tree**, **Skype**, **Calibre**, **Clementine**, **Brasero**, **meld**
 * Other applications/packages removed: **Tomboy**, **Gthumb**, **Gimp**, **Pidgin**, **Thunderbird**, **xchat**, **Banshee**, **Totem**
 
 ### For the specified user
