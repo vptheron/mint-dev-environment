@@ -51,6 +51,7 @@ end
 
 # Install new packages
 ['vim',
+ 'tree',
  'chromium-browser',    
  'adobe-flashplugin',
  'skype',
