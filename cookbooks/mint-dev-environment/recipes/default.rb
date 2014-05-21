@@ -28,13 +28,11 @@ end
 
 # Delete packages
 ['firefox', 'firefox-locale-en',
- 'mint-flashplugin-11', 'mint-flashplugin-steam',
- 'tomboy',
+ 'mint-flashplugin-steam',
  'gthumb', 'gthumb-data',
  'gimp', 'gimp-data', 'libgimp2.0',
  'pidgin', 'pidgin-data',
  'thunderbird',
- 'xchat', 'xchat-common',
  'hexchat', 'hexchat-common',
  'banshee',
  'totem', 'totem-common',
@@ -59,7 +57,6 @@ end
  'haskell-platform',
  'calibre',
  'clementine',
- 'brasero',
  'meld'
 ].each do |pkg|
   package pkg do
@@ -128,7 +125,6 @@ include_recipe 'ruby_build'
 include_recipe 'rbenv::user'
 
 
-
 # Customized CINNAMON desktop environment
 execute 'disable desktop effects' do
   action :run
@@ -150,16 +146,16 @@ cookbook_file 'linux_cheat_sheet.jpg' do
   group username
   mode 0644
 end
-
-execute 'update clock format' do
-  action :run
-  command 'gsettings set org.cinnamon.desktop.interface clock-use-24h false; gsettings set org.cinnamon.desktop.interface clock-show-date true'
-  user username
-end
     
 execute 'set desktop background' do
   action :run 
   command "gsettings set org.cinnamon.desktop.background picture-uri 'file://#{wallpaper_path}'"
+  user username
+end
+
+execute 'update clock format' do
+  action :run
+  command 'gsettings set org.cinnamon.desktop.interface clock-use-24h false; gsettings set org.cinnamon.desktop.interface clock-show-date true'
   user username
 end
 
@@ -171,7 +167,7 @@ end
 
 execute 'configure launcher applet' do
   action :run
-  command "gsettings set org.cinnamon panel-launchers \"['nemo.desktop', 'gnome-terminal.desktop', 'chromium-browser.desktop']\""
+  command "gsettings set org.cinnamon panel-launchers \"['gnome-terminal.desktop', 'nemo.desktop', 'chromium-browser.desktop']\""
   user username
 end
 
@@ -191,5 +187,4 @@ execute 'configure power manager' do
   action :run
   command "gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-battery-timeout 600; gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-ac-timeout 600; gsettings set org.cinnamon.settings-daemon.plugins.power critical-battery-action 'hibernate'; gsettings set org.cinnamon.settings-daemon.plugins.power lid-close-battery-action 'hibernate'; gsettings set org.cinnamon.settings-daemon.plugins.power lid-close-ac-action 'hibernate';"
   user username
-end
 end
