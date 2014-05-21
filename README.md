@@ -60,10 +60,8 @@ sudo  ./install.sh
 * Desktop icons: **Computer** and **Home** are removed, and **Trash** is added
 * Background image is updated
 * Clock format is set to 12-hour and display the date in addition to the time (1)
-* **Files** launcher is added to the panel
-* **Terminal** launcher is added to the panel
-* **Chromium** launcher is added to the panel
-* Some applets are removed from the panel
+* **Chromium** launcher is added to the panel (in replacement of **Firefox**)
+* Some applets are removed from the panel: *Show desktop*, *User applet*, *Keyboard* and *Window Quick List*
 * Scrolling is enabled for **Window List** applet
 * Remove favorite apps shortcuts from main menu
 * Configure power manager to favor hibernation
