@@ -130,6 +130,12 @@ include_recipe 'rbenv::user'
 
 
 # Customized CINNAMON desktop environment
+execute 'disable desktop effects' do
+  action :run
+  command 'gsettings set org.cinnamon desktop-effects false'
+  user username
+end
+
 execute 'update desktop icons' do
   action :run
   command 'gsettings set org.nemo.desktop trash-icon-visible true; gsettings set org.nemo.desktop computer-icon-visible false; gsettings set org.nemo.desktop home-icon-visible false'
