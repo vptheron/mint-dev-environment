@@ -1,8 +1,8 @@
 ## Overview
 
-This self-contained [Chef](http://www.getchef.com/chef/) repository can be used to provision a vanilla [Mint 16 "Petra"](http://www.linuxmint.com/) system and set up a developer environment tailored to my personal needs and workflow.
+This self-contained [Chef](http://www.getchef.com/chef/) repository can be used to provision a vanilla [Mint 17 "Qiana" - Cinnamon](http://www.linuxmint.com/) system and set up a developer environment tailored to my personal needs and workflow.
 
-The main cookbook has been developed and tested **only** on **Linux Mint 16 "Petra"**. It will probably not work on a different OS/version.
+The main cookbook has been developed and tested **only** on **Linux Mint 17 "Qiana" - Cinnamon**. It will probably not work on a different OS/version. (Note: see tagged versions of this repository for previous versions of Linux Mint)
 
 ## Getting ready to run the installer
 
@@ -22,7 +22,6 @@ The configuration of the environment is located in `mint.json`.
 * `mint-dev-environment.username` - the username of the account to set up (note that part of this cookbook will perform system-wide changes).
 * `mint-dev-environment.full_name` - the full name of the user.
 * `mint-dev-environment.email_address` - the email address of the user.
-* `mint-dev-environment.desktop` - the desktop environment to configure. Valid values are `cinnamon` and `mate`, other values are ignored (so to skip the desktop environment configuration just set this attribute to `none` for example).
 
 ## Running the installer
 
@@ -42,7 +41,7 @@ sudo  ./install.sh
 * **Adobe Flash Plugin** replaces **Mint Flash Plugin**
 * Installed languages/build tools/etc: **OpenJDK 7**, **sbt-extras**, **Leiningen**, **Haskell Platform**
 * Other applications/packages installed: **vim**, **tree**, **Skype**, **Calibre**, **Clementine**, **Brasero**, **meld**
-* Other applications/packages removed: **Tomboy**, **Gthumb**, **Gimp**, **Pidgin**, **Thunderbird**, **xchat**, **Banshee**, **Totem**
+* Other applications/packages removed: **Tomboy**, **Gthumb**, **Gimp**, **hexchat**, **Pidgin**, **Thunderbird**, **xchat**, **Banshee**, **Totem**
 
 ### For the specified user
 
@@ -53,27 +52,23 @@ sudo  ./install.sh
 * **rbenv** and **ruby-1.9.3** are installed, as well as the **bundler** gem
 * The desktop environment is configured (see below for details)
 
-### Desktop environments
+### Desktop environment
 
-Two environments are currently supported: **Cinnamon** and **MATE**. Note that for **MATE**, the package **dconf-tools** will be install.
+**Cinnamon** is now the *only* supported desktop environment. The following changes are applied by the cookbook:
 
-| Change/Update                                            | Cinnamon | MATE |
-|:---------------------------------------------------------|:--------:|:----:|     
-| **Computer** and **Home** icons are removed from desktop |    Yes   |  Yes |  
-| **Trash** icon is added to desktop                       |    Yes   |  Yes |     
-| Background image is updated                              |    Yes   |  Yes |    
-| Clock format is set to 12-hour                           |  No (1)  |  Yes |
-| Main menu replaces Mint menu in the panel                |    N/A   |  Yes |
-| **Files** launcher is added to the panel                 |    Yes   |  No  |
-| **Terminal** launcher is added to the panel              |    Yes   | Yes  |
-| **Chromium** launcher is added to the panel              |    Yes   | Yes  |
-| Some applets are removed from the panel                  |    Yes   | No   |
-| Scrolling is enabled for **Window List** applet          |    Yes   | N/A  |
-| **Terminal** key bindings are updated                    |    No    | Yes  |    
-| Remove favorite apps shortcuts from main menu            |    Yes   | N/A  |
-| Configure power manager to favor hibernation             |   Yes    | No   |
+* Desktop effects are disabled
+* Desktop icons: **Computer** and **Home** are removed, and **Trash** is added
+* Background image is updated
+* Clock format is set to 12-hour and display the date in addition to the time (1)
+* **Files** launcher is added to the panel
+* **Terminal** launcher is added to the panel
+* **Chromium** launcher is added to the panel
+* Some applets are removed from the panel
+* Scrolling is enabled for **Window List** applet
+* Remove favorite apps shortcuts from main menu
+* Configure power manager to favor hibernation
 
-(1) The recipe does not automatically update the calendar applet to change the time format, however, it contains a json settings file that can be imported from the applet configuration window. The file is `cookbooks/mint-dev-environment/files/default/date_applet.json`.
+(1) The default date format displays the full name of the day. A json settings file is provided to update the date format and use the short version, it can be imported from the applet configuration window. The file is `cookbooks/mint-dev-environment/files/default/date_applet.json`.
 
 ## Not added yet (hopefully soon!)
 
