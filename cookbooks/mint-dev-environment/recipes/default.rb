@@ -35,6 +35,7 @@ end
  'pidgin', 'pidgin-data',
  'thunderbird',
  'xchat', 'xchat-common',
+ 'hexchat', 'hexchat-common',
  'banshee',
  'totem', 'totem-common',
  'gir1.2-totem-1.0', 'gir1.2-totem-plparser-1.0'
