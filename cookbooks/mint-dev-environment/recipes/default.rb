@@ -108,7 +108,7 @@ template File.join(home_dir, '.gitconfig') do
 end
 
 # Install rbenv, ruby and bundler
-ruby_version = '1.9.3-p484'
+ruby_version = '2.1.1'
 node.set['rbenv']['git_url'] = 'https://github.com/sstephenson/rbenv.git'
 node.set['rbenv']['install_pkgs'] = %w{git grep autoconf bison build-essential libssl-dev libyaml-dev libreadline6 libreadline6-dev zlib1g zlib1g-dev}
 node.set['rbenv']['user_home_root'] = '/home'
@@ -117,7 +117,7 @@ node.set['rbenv']['user_installs'] = [
     'user' => username,
     'rubies' => [ruby_version],
     'global' => ruby_version,
-    'gems' => { ruby_version => [{'name' => 'bundler'}] }
+    'gems' => { ruby_version => [{'name' => 'bundler'}, {'name' => 'jekyll'}] }
   }
 ]
 
