@@ -49,7 +49,7 @@ sudo  ./install.sh
 * Directory `~/Devel/tools` is created
 * **IntelliJ IDEA** is installed in `~/Devel/tools/`
 * **Git** is configured to use the full name and email address specified in `mint.json`
-* **rbenv** and **ruby-1.9.3** are installed, as well as the **bundler** gem
+* **rbenv** and **ruby-2.1.1** are installed, as well as the **bundler** and **jekyll** gems
 * The desktop environment is configured (see below for details)
 
 ### Desktop environment
