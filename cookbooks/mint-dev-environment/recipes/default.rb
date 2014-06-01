@@ -57,7 +57,8 @@ end
  'haskell-platform',
  'calibre',
  'clementine',
- 'meld'
+ 'meld',
+ 'nodejs'
 ].each do |pkg|
   package pkg do
     action :upgrade
