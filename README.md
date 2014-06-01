@@ -40,7 +40,7 @@ sudo  ./install.sh
 * **Chromium** replaces **Firefox**
 * **Adobe Flash Plugin** replaces **Mint Flash Plugin**
 * Installed languages/build tools/etc: **OpenJDK 7**, **sbt-extras**, **Leiningen**, **Haskell Platform**
-* Other applications/packages installed: **vim**, **tree**, **Skype**, **Calibre**, **Clementine**, **meld**
+* Other applications/packages installed: **vim**, **tree**, **Skype**, **Calibre**, **Clementine**, **meld**, **nodejs**
 * Other applications/packages removed: **Gthumb**, **Gimp**, **hexchat**, **Pidgin**, **Thunderbird**, **Banshee**, **Totem**
 
 ### For the specified user
