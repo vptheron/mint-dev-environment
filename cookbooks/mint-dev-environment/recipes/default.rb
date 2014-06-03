@@ -58,7 +58,8 @@ end
  'calibre',
  'clementine',
  'meld',
- 'nodejs'
+ 'nodejs',    # required by jekyll
+ 'libncurses5-dev'    # required by EclipseFP
 ].each do |pkg|
   package pkg do
     action :upgrade
