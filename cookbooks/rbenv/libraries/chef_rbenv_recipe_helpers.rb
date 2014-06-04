@@ -40,13 +40,16 @@ class Chef
         return if mac_with_no_homebrew
 
         node['rbenv']['install_pkgs'].each do |pkg|
-          package pkg
+          package "installing rbenv dependency: #{pkg}" do
+            package_name pkg
+          end
         end
       end
 
       def install_or_upgrade_rbenv(opts = {})
         git_deploy_rbenv opts
         initialize_rbenv opts
+        add_rbenv_to_PATH
       end
 
       private
@@ -85,6 +88,15 @@ class Chef
         end
 
         log "rbenv-post-init-#{opts[:user] || 'system'}"
+      end
+
+      def add_rbenv_to_PATH
+        ruby_block "Add rbenv to PATH" do
+          block do
+            rbenv_root = node['rbenv']['root_path']
+            ENV['PATH'] = "#{rbenv_root}/shims:#{rbenv_root}/bin:#{ENV['PATH']}"
+          end
+        end
       end
     end
   end

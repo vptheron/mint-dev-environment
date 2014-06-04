@@ -20,13 +20,23 @@
 include_recipe "rbenv::user_install"
 
 Array(node['rbenv']['user_installs']).each do |rbenv_user|
+  plugins   = rbenv_user['plugins'] || node['rbenv']['user_plugins']
   rubies    = rbenv_user['rubies'] || node['rbenv']['user_rubies']
   gem_hash  = rbenv_user['gems'] || node['rbenv']['user_gems']
 
+  plugins.each do |plugin|
+    rbenv_plugin plugin['name'] do
+      git_url   plugin['git_url']
+      git_ref   plugin['git_ref'] if plugin['git_ref']
+      user      rbenv_user['user']
+      root_path rbenv_user['root_path'] if rbenv_user['root_path']
+    end
+  end
+
   rubies.each do |rubie|
     if rubie.is_a?(Hash)
-      rbenv_ruby "#{rubie} (#{rbenv_user['user']})" do
-        definition  rubie
+      rbenv_ruby "#{rubie['name']} (#{rbenv_user['user']})" do
+        definition  rubie['name']
         user        rbenv_user['user']
         root_path   rbenv_user['root_path'] if rbenv_user['root_path']
         environment rubie['environment'] if rubie['environment']

@@ -93,7 +93,6 @@ end
 # Install IDEA IntelliJ
 node.set['idea']['setup_dir'] = File.join(home_dir, 'Devel/tools')
 node.set['idea']['user'] = username
-node.set['idea']['group'] = username
 include_recipe 'idea::default'
 
 # Configure git
@@ -111,9 +110,6 @@ end
 
 # Install rbenv, ruby and bundler
 ruby_version = '2.1.2'
-node.set['rbenv']['git_url'] = 'https://github.com/sstephenson/rbenv.git'
-node.set['rbenv']['install_pkgs'] = %w{git grep autoconf bison build-essential libssl-dev libyaml-dev libreadline6 libreadline6-dev zlib1g zlib1g-dev}
-node.set['rbenv']['user_home_root'] = '/home'
 node.set['rbenv']['user_installs'] = [
   {
     'user' => username,

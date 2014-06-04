@@ -7,6 +7,9 @@
 rubie="ree-1.8.7-2012.02"
 
 setup() {
+  unset GEM_HOME
+  unset GEM_PATH
+  unset GEM_CACHE
   source /etc/profile.d/rbenv.sh
 }
 
@@ -16,7 +19,7 @@ setup() {
   requires="require 'nokogiri';"
   script="$requires puts Nokogiri::HTML(open('$https_url')).css('input')"
 
-  run gem install nokogiri --no-ri --no-rdoc
+  run gem install nokogiri -v 1.5.11 --no-ri --no-rdoc
   [ $status -eq 0 ]
 
   run ruby -rrubygems -ropen-uri -e "$script"

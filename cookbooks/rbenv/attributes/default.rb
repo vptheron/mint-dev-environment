@@ -20,7 +20,7 @@
 #
 
 # git repository containing rbenv
-default['rbenv']['git_url'] = "git://github.com/sstephenson/rbenv.git"
+default['rbenv']['git_url'] = "https://github.com/sstephenson/rbenv.git"
 default['rbenv']['git_ref'] = "v0.4.0"
 
 # upgrade action strategy
@@ -37,9 +37,13 @@ default['rbenv']['user_installs'] = []
 default['rbenv']['rubies']      = []
 default['rbenv']['user_rubies'] = []
 
-# hash of gems and their list of additional gems to be installed.
+# hash of rubies and their list of additional gems to be installed.
 default['rbenv']['gems']      = Hash.new
 default['rbenv']['user_gems'] = Hash.new
+
+# list of rbenv plugins to install
+default['rbenv']['plugins']      = []
+default['rbenv']['user_plugins'] = []
 
 # whether to create profile.d shell script
 default['rbenv']['create_profiled'] = true
@@ -51,10 +55,16 @@ when "redhat","centos","fedora", "amazon", "scientific"
 when "debian","ubuntu","suse"
   node.set['rbenv']['install_pkgs']   = %w{git-core grep}
   default['rbenv']['user_home_root']  = '/home'
+when "linuxmint"
+  node.set['rbenv']['install_pkgs'] = %w{git-core grep autoconf bison build-essential libssl-dev libyaml-dev libreadline6 libreadline6-dev zlib1g zlib1g-dev}
+  default['rbenv']['user_home_root'] = '/home'
 when "mac_os_x"
   node.set['rbenv']['install_pkgs']   = %w{git}
   default['rbenv']['user_home_root']  = '/Users'
 when "freebsd"
   node.set['rbenv']['install_pkgs']   = %w{git}
   default['rbenv']['user_home_root']  = '/usr/home'
+when "gentoo"
+  node.set['rbenv']['install_pkgs']   = %w{git}
+  default['rbenv']['user_home_root']  = '/home'
 end

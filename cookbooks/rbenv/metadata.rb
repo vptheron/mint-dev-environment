@@ -10,6 +10,7 @@ recommends "ruby_build"       # if using the rbenv_ruby LWRP, ruby-build must be
 recommends "java", "> 1.4.0"  # if using jruby, java is required on system
 
 supports "ubuntu"
+supports "linuxmint"
 supports "debian"
 supports "freebsd"
 supports "redhat"
@@ -19,3 +20,4 @@ supports "amazon"
 supports "scientific"
 supports "suse"
 supports "mac_os_x"
+supports "gentoo"
