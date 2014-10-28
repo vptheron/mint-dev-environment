@@ -53,7 +53,7 @@ end
 ['vim',
  'tree',
  'chromium-browser',    
- 'adobe-flashplugin',
+ 'pepperflashplugin-nonfree',
  'skype',
  'haskell-platform',
  'calibre',
@@ -110,7 +110,7 @@ template File.join(home_dir, '.gitconfig') do
 end
 
 # Install rbenv, ruby and bundler
-ruby_version = '2.1.2'
+ruby_version = '2.1.4'
 node.set['rbenv']['user_installs'] = [
   {
     'user' => username,
